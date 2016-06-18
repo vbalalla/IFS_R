@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<configuration date="2016/01/08" author="e.World Technology Ltd.">
+<project id="{8D115984-0831-4F22-829A-47049919194D}" file="C:\Users\Shalika Fernando\Documents\PHPReportMaker\Projects\project4.prp" name="project4" product="PHPReportMaker" version="9.0" datetime="2016/01/08 10:39:30" languagefolder="phprptlang" userlevel="-2,&quot;Anonymous&quot;,0;">
+<table id="candidate" name="candidate" caption="candidate" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="candidatestatus" name="candidatestatus" caption="candidatestatus" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="config" name="config" caption="config" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="criteria" name="criteria" caption="criteria" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="criteria1_3" name="criteria1_3" caption="criteria 1 3" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="cv" name="cv" caption="cv" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="designation" name="designation" caption="designation" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="employee" name="employee" caption="employee" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="evaluation" name="evaluation" caption="evaluation" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interview" name="interview" caption="interview" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewdetails" name="interviewdetails" caption="interviewdetails" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewpanel" name="interviewpanel" caption="interviewpanel" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewpaneldetails" name="interviewpaneldetails" caption="interviewpaneldetails" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewpanelmember" name="interviewpanelmember" caption="interviewpanelmember" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewpanelmemberdetails" name="interviewpanelmemberdetails" caption="interviewpanelmemberdetails" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="interviewschedule" name="interviewschedule" caption="interviewschedule" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="jobpositionvsinterviews" name="jobpositionvsinterviews" caption="jobpositionvsinterviews" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="jobpositionvsjoboffered" name="jobpositionvsjoboffered" caption="jobpositionvsjoboffered" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="jobpositionvsrejected" name="jobpositionvsrejected" caption="jobpositionvsrejected" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="jobpositon" name="jobpositon" caption="jobpositon" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="login" name="login" caption="login" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="recruitmentsession" name="recruitmentsession" caption="recruitmentsession" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="sessionstatus" name="sessionstatus" caption="sessionstatus" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="universityvsjobofferedcandidates" name="universityvsjobofferedcandidates" caption="universityvsjobofferedcandidates" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="universityvsrejectedcandidates" name="universityvsrejectedcandidates" caption="universityvsrejectedcandidates" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="Job_Offered_Candidates_Vs_Job_Positions" name="Job Offered Candidates Vs Job Positions" caption="Job Offered Candidates Vs Job Positions" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="Rejected_Candidates_Vs_Job_Positions" name="Rejected Candidates Vs Job Positions" caption="Rejected Candidates Vs Job Positions" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="Job_Offered_Candidates_Vs_University" name="Job Offered Candidates Vs University" caption="Job Offered Candidates Vs University" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="Rejected_Candidates_Vs_University" name="Rejected Candidates Vs University" caption="Rejected Candidates Vs University" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+<table id="Number_of_Interviews_Vs_Job_Positions" name="Number of Interviews Vs Job Positions" caption="Number of Interviews Vs Job Positions" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1"/>
+</project></configuration>

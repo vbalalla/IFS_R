@@ -1,0 +1,673 @@
+<?xml version="1.0" standalone="yes"?>
+<phpreportmaker date="2015/08/03" version="8.1.0.1" desc="default template" author="e.World Technology Ltd.">
+
+	<!-- common variables and functions used by template  -->
+	<control id="rptcommon" type="function"	ifiles="rpt-common.js" />
+
+	<!-- define output folders -->
+	<control id="_jquery" type="folder" ofolder="jquery" />
+	<control id="_include" type="folder" ofolder="phprptinc" />
+	<control id="_css" type="folder" ofolder="phprptcss" />
+	<control id="_cssfonts" type="folder" ofolder="phprptcss/fonts" />
+	<control id="_js" type="folder" ofolder="phprptjs" />
+	<control id="_images" type="folder" ofolder="phprptimages" />
+	<control id="_language" type="folder" ofolder="phprptlang" />
+	<control id="_font" type="folder" ofolder="phprptfont" />
+
+	<!-- copy all images -->
+	<!-- Uncomment to use image folder
+	<control id="rptimages" type="copy" ofolderid="_images" ifolder="phprptimages" />-->
+
+	<!-- Mobile detect function -->
+	<control id="mobiledetect" type="copy" remark="Copy mobile_detect.php" ofolderid="_include" ifiles="mobile_detect.php" />
+
+	<!-- js -->
+	<control id="ewr.js" type="other" ofolderid="_js" ifiles="ewr.js" ofile="ewr8" oext="js">
+		<session type="key" value="jscommon" />
+	</control>
+	<control id="jsrender.min.js" type="copy" ofolderid="_js" ifiles="jsrender.min.js" />
+	<control id="jquery" type="copy" ofolder="jquery" ifolder="jquery" />
+	<!-- copy typeahead.bundle.min.js -->
+	<control id="typeahead.js" type="copy" ofolderid="_js" ofile="typeahead.bundle.min" oext="js" ifiles="typeahead.bundle.min.js" />
+	<!-- copy handlebars.js -->
+	<control id="handlebars.js" type="copy" ofolderid="_js" ofile="handlebars" oext="js" ifiles="handlebars.js" cond="proj/UseHandlebarsJs/EQ/True" />
+
+	<!-- PHPMailer -->
+	<control id="phpmailer" type="copy" remark="Copy PHPMailer" ofolder="phpmailer529" ifolder="phpmailer529" />
+	
+	<!--
+		Colorbox files
+	-->
+	<control id="colorbox" type="copy" remark="Copy Colorbox files" ofolder="colorbox" ifolder="colorbox" />
+
+	<!--
+		Bootstrap files
+	-->
+	<control id="_bootstrapcss" type="folder" ofolder="bootstrap3/css" />
+	<control id="bootstrap" type="copy" remark="Copy Bootstrap files" ofolder="bootstrap3" ifolder="bootstrap" />
+	
+	<!--
+		Icon font files
+	-->
+	<control id="iconfont" type="copy" remark="Copy font files" ofolderid="_cssfonts" ifolder="fonts" />
+
+	<!--
+		project/bootstrap css (IMPORTANT NOTE: DO NOT CHANGE id)
+	-->
+	<control id="@css" type="system" remark="Create CSS file" ofolderid="_css" ofile="{PROJ.ProjVar}" oext="css" />
+	<control id="@bootstrapcss" type="system" remark="Create Bootstrap CSS file" ofolderid="_bootstrapcss" ofile="bootstrap" oext="css" />
+	<control id="@bootstrapthemecss" type="system" remark="Create Bootstrap Theme CSS file" ofolderid="_bootstrapcss" ofile="bootstrap-theme" oext="css" />
+
+	<!-- copy js calendar -->
+	<control id="jscalendar" type="copy" ofolder="jscalendar" ifolder="jscalendar"
+			cond="function/IsPopupCalendar/Boolean/EQ/True" />
+			
+	<!-- copy FusionCharts Trial -->
+	<control id="FusionChartsTrial" type="copy" remark="Copy FusionCharts Trial" ofolder="FusionChartsTrial" ifolder="FusionChartsTrial" />
+	
+	<!-- Export handler -->
+	<control id="FusionChartsExportHandler" type="other" ifiles="fcexporter.php" ofile="fcexporter8" oext="php">
+		<session type="key" value="fcexporter" />
+	</control>
+
+	<!-- copy FusionCharts Free -->
+	<control id="FusionChartsFree" type="copy" remark="Copy FusionCharts Free" ofolder="FusionChartsFree" ifolder="FusionChartsFree" />
+	
+	<!-- PasswordHash.php -->
+	<control id="passwordhash.php" type="copy" remark="Copy passwordhash.php" ifiles="passwordhash.php" />
+
+	<!-- user php functions -->
+	<control id="phprptuserfn" type="other" ofolderid="_include"
+			ofile="ewrusrfn8" oext="*" ifiles="rpt-userfn.php">
+		<!-- functions -->
+		<session type="key" value="userfunction" />
+	</control>
+	
+	<!-- database helper -->
+	<control id="dbhelper" remark="Database helper" type="other" ofile="{DB.DBVar}db2" oext="*" ifiles="rpt-db.php" cond="proj/GenDatabaseHelper/EQ/True">
+		<session type="key" value="ewdb" />
+	</control>
+
+	<!-- user js functions -->
+	<control id="rptuser.js" type="other" ofolderid="_js" ofile="ewrusrfn8" oext="js" ifiles="rpt-userfn.js">
+		<!-- functions -->
+		<session type="key" value="userjs" />
+	</control>
+
+	<!-- generate phprptfn.php -->
+	<control id="phprptfn" type="other" ofolderid="_include"
+			ofile="ewrfn8" oext="*" ifiles="phprptfn.php">
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="reportfunctions" />
+		<session type="key" value="thumbnailfunction" />
+	</control>
+
+	<!-- ajax lookup -->
+	<control id="lookup" type="other" ofile="ewrajax8" oext="*" ifiles="rpt-lookup.php">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php"/>
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- php script -->
+		<session type="key" value="lookup_script" />
+	</control>
+
+	<!-- export email -->
+	<control id="ewemail" type="other" ofolderid="_include"
+			ofile="ewremail8" oext="*" ifiles="rpt-email.php">
+		<!-- htm -->
+		<session type="key" value="exportemail_htm" />
+	</control>
+
+	<!-- View binary data -->
+	<control id="ewbv.php" type="other"
+			ofile="ewrbv8" oext="*" ifiles="rpt-bv.php">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php"/>
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<!-- php script -->
+		<session type="key" value="ewbv_script" />
+	</control>
+
+	<!-- MySQL API -->
+	<control id="ewmysql" type="other" ofolderid="_include"
+			ofile="ewmysql" oext="*" ifiles="ewmysql.php"
+			cond="function/UseADODB/Boolean/EQ/False">
+		<session type="key" value="mysqldriver" />
+	</control>
+	<!-- ADODB -->
+	<control id="adodb5" type="copy" remark="Copy ADODB" ofolder="adodb5" ifolder="adodb5"
+			cond="function/UseADODB/Boolean/EQ/True" />
+
+	<!-- generate report config file -->
+	<control id="rptconfig" type="other" ofolderid="_include"
+			ofile="ewrcfg8" oext="*" ifiles="rpt-config.php">
+		<!-- common php codes -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="ewconfig" />
+		<session type="key" value="ewconfigmenu"/>
+		<session type="key" value="ewconfigpdf" />
+		<session type="key" value="ewconfigchart" />
+	</control>
+
+	<!-- generate report header file -->
+	<control id="rptheader" type="other" ofolderid="_include" ofile="header" oext="*" ifiles="rpt-template.php"
+			cond="function/GenHeader/Boolean/EQ/True">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php"/>
+		<session type="key" value="common_config" />
+		<session type="key" value="header_top" />
+		<session type="key" value="header_top_2" />
+		<session type="key" value="header_top_3" />
+		<session type="key" value="menu" />
+		<session type="key" value="header_bottom" />
+	</control>
+
+	<!-- generate report userlevel export file -->
+	<control id="rptuserlevel" type="simple" ofile="ewruserlevel" oext="*" ifiles="rpt-userlevel-export.php"
+			cond="proj/AppCompatVersion/LT/9">
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="userlevel" />
+	</control>
+
+	<!-- generate report menu file -->
+	<control id="rptmenu" type="other" ofolderid="_include" ofile="menu" oext="*" ifiles="rpt-menu.php">
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="report_menu" />
+	</control>
+	
+	<!-- mobile menu -->
+	<control id="rptmobilemenu" type="other" ofile="ewrmobilemenu" oext="*" ifiles="rpt-menu.php">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="report_mobilemenu" />
+	</control>
+	
+	<!-- generate report footer file -->
+	<control id="rptfooter" type="other" ofolderid="_include" ofile="footer" oext="*" ifiles="rpt-template.php"
+			cond="function/GenFooter/Boolean/EQ/True">
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php"/>
+		<session type="key" value="common_config" />
+		<session type="key" value="footer" />
+	</control>
+	
+	<!-- generate default page -->
+	<control id="rptdefault" type="simple" ofile="*" oext="*" ofilecompat="rindex" ifiles="rpt-index.php"
+			cond="function/GenDefault/Boolean/EQ/True">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php"/>
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include "header" -->
+		<session type="include" value="rptheader" />
+		<!-- htm -->
+		<session type="key" value="default_htm" />
+		<!-- include "footer" -->
+		<session type="include" value="rptfooter" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+
+	<!-- generate simple report -->
+	<control id="rpt" type="table" ofile="rpt" oext="*" ifiles="rpt-summary.php" cond="table/TblReportType/EQ/rpt">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />		
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="include" value="rptinfo" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction" />
+		<session type="key" value="setupexportoptionsext-start" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="setupexportoptionsext-end" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="report_extfilter_function" ifile="rpt-extfilter.php" />
+		<session type="key" value="report_sort_function" ifile="rpt-sort.php" />
+		<session type="key" value="report_export_functions" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-extfilter.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="key" value="phpcommon-header-compat" ifile="rpt-phpcommon.php" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<!-- js -->
+		<session type="key" value="js_chart" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="js_validate" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- report content -->
+		<session type="key" value="report_content" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="rendercustomtemplate" ifile="rpt-phpcommon-table.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="key" value="phpcommon-footer-compat" ifile="rpt-phpcommon.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+	<!-- info for simple report -->
+	<control id="rptinfo" type="table" ofile="rptinfo" oext="*" ifiles="rpt-info.php" cond="table/TblReportType/EQ/rpt">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" ifile="rpt-summary.php" />
+		<session type="key" value="infoconfig" />
+		<!-- class info -->
+		<session type="key" value="infoclass" />
+	</control>
+	<!-- pager for simple report -->
+	<control id="rptpager" type="table" ofile="rptpager" oext="*" ifiles="rpt-pager.php" cond="table/TblReportType/EQ/rpt">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<!-- pager -->
+		<session type="key" value="phppager" />
+	</control>
+	
+	<!-- generate summary report -->
+	<control id="summary" type="report" ofile="smry" oext="*" ifiles="rpt-summary.php" cond="table/TblReportType/EQ/summary">    
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="include" value="summaryinfo" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction" />
+		<session type="key" value="setupexportoptionsext-start" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="setupexportoptionsext-end" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="report_extfilter_function" ifile="rpt-extfilter.php" />
+		<session type="key" value="report_sort_function" ifile="rpt-sort.php" />
+		<session type="key" value="report_export_functions" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-extfilter.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="key" value="phpcommon-header-compat" ifile="rpt-phpcommon.php" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<!-- js -->
+		<session type="key" value="js_chart" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="js_validate" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- report content -->
+		<session type="key" value="report_content" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="rendercustomtemplate" ifile="rpt-phpcommon-table.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="key" value="phpcommon-footer-compat" ifile="rpt-phpcommon.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+	<!-- info for summary report -->
+	<control id="summaryinfo" type="report" ofile="smryinfo" oext="*" ifiles="rpt-info.php" cond="table/TblReportType/EQ/summary">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" ifile="rpt-summary.php" />
+		<session type="key" value="infoconfig" />
+		<!-- class info -->
+		<session type="key" value="infoclass" />
+	</control>
+	<!-- pager for summary report -->
+	<control id="summarypager" type="report" ofile="smrypager" oext="*" ifiles="rpt-pager.php" cond="table/TblReportType/EQ/summary">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<!-- pager -->
+		<session type="key" value="phppager" />
+	</control>
+	
+	<!-- generate crosstab report -->
+	<control id="crosstab" type="report" ofile="ctb" oext="*" ifiles="rpt-crosstab.php" cond="table/TblReportType/EQ/crosstab">    
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="include" value="crosstabinfo" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction" />
+		<session type="key" value="setupexportoptionsext-start" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="setupexportoptionsext-end" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="report_extfilter_function" ifile="rpt-extfilter.php" />
+		<session type="key" value="report_sort_function" ifile="rpt-sort.php" />
+		<session type="key" value="report_export_functions" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-extfilter.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="key" value="phpcommon-header-compat" ifile="rpt-phpcommon.php" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<!-- js -->
+		<session type="key" value="js_chart" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="js_validate" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- report content -->
+		<session type="key" value="report_content" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="key" value="phpcommon-footer-compat" ifile="rpt-phpcommon.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+	<!-- info for crosstab report -->
+	<control id="crosstabinfo" type="report" ofile="ctbinfo" oext="*" ifiles="rpt-info.php" cond="table/TblReportType/EQ/crosstab">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" ifile="rpt-crosstab.php" />
+		<session type="key" value="infoconfig" />
+		<!-- class info -->
+		<session type="key" value="infoclass" />
+	</control>
+	<!-- pager for crosstab report -->
+	<control id="crosstabpager" type="report" ofile="ctbpager" oext="*" ifiles="rpt-pager.php" cond="table/TblReportType/EQ/crosstab">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<!-- pager -->
+		<session type="key" value="phppager" />
+	</control>
+
+	<!-- Chart related file -->
+	<control id="rptchart" type="chart" ofile="chart" oext="*" remark="Chart" ifiles="rpt-chartcommon.php">
+		<!-- configuration -->
+		<session type="key" value="chart_save" />
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="chart_load" />
+		<session type="key" value="chart_common" />
+		<session type="key" value="chart_config" />
+		<session type="key" value="chart_content" />
+	</control>
+
+	<!-- Blob Field related file -->
+	<control id="rptblobview" type="field" ofile="_rbv" oext="*" ifiles="rpt-getfile.php"
+			cond="field/FldHtmlTag/EQ/FILE,field/FldList/EQ/True,table/TblKey/NE/''">
+		<!-- configuration -->
+		<session type="key" value="phpconfig" />
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="include" value="info" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial php codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+
+	<!-- generate login page -->
+	<control id="rptlogin" type="other" ofile="rlogin" oext="*" ifiles="rpt-login.php"
+			cond="function/GenLogin/Boolean/EQ/True,proj/SecType/EQ/Hard Code|Use Table|Both">
+		<!-- config current table -->
+		<session type="key" value="currenttable" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction"/>
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents"/>
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="include" value="header" parm="compat" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<!-- login htm -->
+		<session type="key" value="login_htm" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="include" value="footer" parm="compat" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+	
+	<!-- generate "logout.php" -->
+	<control id="rptlogout" type="other" ofile="rlogout" oext="*" ifiles="rpt-logout.php"
+			cond="function/GenLogout/Boolean/EQ/True,proj/SecType/EQ/Hard Code|Use Table|Both">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+
+	<!--
+		Add gantt function
+	-->
+	<control id="ganttfn" type="other" ofolderid="_include" ifiles="ganttfn.php" ofile="ganttfn" oext="php">
+		<!-- add gantt functions -->
+		<session type="key" value="ganttfunctions"/>
+	</control>
+
+	<control id="gantt" type="report" ifiles="rpt-gantt.php" ofile="gantt" oext="php"
+			cond="table/TblReportType/EQ/gantt">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />		
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="ganttfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="key" value="infoconfig" ifile="rpt-info.php" />
+		<session type="key" value="infoclass" ifile="rpt-info.php" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction" />
+		<session type="key" value="setupexportoptionsext-start" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="setupexportoptionsext-end" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="report_extfilter_function" ifile="rpt-extfilter.php" />
+		<session type="key" value="report_sort_function" ifile="rpt-sort.php" />
+		<session type="key" value="report_export_functions" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpevents" ifile="rpt-extfilter.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="key" value="phpcommon-header-compat" ifile="rpt-phpcommon.php" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<!-- js -->
+		<session type="key" value="js_chart" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="js_validate" ifile="rpt-addon.js" />
+		<session type="key" value="js_popupcalendar" ifile="rpt-addon.js" />
+		<session type="key" value="check-export-end" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- report content -->
+		<session type="key" value="report_content" />
+		<session type="key" value="check-clientscript-begin" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="check-clientscript-end" ifile="rpt-phpcommon-table.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="key" value="phpcommon-footer-compat" ifile="rpt-phpcommon.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+
+	<!-- generate dashboard report -->
+	<control id="dashboard" type="report" ofile="dsb" oext="*" ifiles="rpt-dashboard.php" cond="table/TblReportType/EQ/dashboard">
+		<!-- configuration -->
+		<session type="key" value="phpcommon-config" ifile="rpt-phpcommon.php" />
+		<!-- php directive -->
+		<session type="key" value="phpcommon-directive" ifile="rpt-phpcommon.php" />
+		<!-- configuration -->
+		<session type="key" value="phpcommon-table-config" ifile="rpt-phpcommon-table.php" />
+		<session type="key" value="phpconfig" />
+		<!-- include files -->
+		<session type="include" value="rptconfig" />
+		<session type="include" value="_adodb" />
+		<session type="include" value="phprptfn" />
+		<session type="include" value="phprptuserfn" />
+		<!-- table class -->
+		<session type="key" value="infoconfig" ifile="rpt-info.php" />
+		<session type="key" value="infoclass" ifile="rpt-info.php" />
+		<session type="key" value="include-table" />
+		<!-- page class -->
+		<session type="key" value="phppageclassbegin" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phpmain" />
+		<session type="key" value="phpfunction" />
+		<session type="key" value="phpevents" ifile="rpt-phpcommon-scripts.php" />
+		<session type="key" value="phppageclassend" ifile="rpt-phpcommon-scripts.php" />
+		<!-- initial codes -->
+		<session type="key" value="phpload" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include compatible header -->
+		<session type="key" value="phpcommon-header-compat" ifile="rpt-phpcommon.php" />
+		<!-- include header -->
+		<session type="include" value="rptheader" />
+		<!-- js -->
+		<session type="key" value="js_chart" ifile="rpt-addon.js" />
+		<session type="key" value="js_validate" ifile="rpt-addon.js" />
+		<session type="key" value="clientscript" ifile="rpt-phpcommon-scripts.php" />
+		<!-- report content -->
+		<session type="key" value="report_content" />
+		<session type="key" value="clientstartupscript" ifile="rpt-phpcommon-scripts.php" />
+		<!-- include footer -->
+		<session type="include" value="rptfooter" />
+		<!-- include compatible footer -->
+		<session type="key" value="phpcommon-footer-compat" ifile="rpt-phpcommon.php" />
+		<!-- final codes -->
+		<session type="key" value="phpunload" ifile="rpt-phpcommon-scripts.php" />
+	</control>
+	
+	<!-- custom page -->
+	<control id="custom" type="report" ofile="" oext="" ifiles="rpt-custom.php" cond="table/TblReportType/EQ/custom">
+		<session type="key" value="content" />
+	</control>
+
+</phpreportmaker>

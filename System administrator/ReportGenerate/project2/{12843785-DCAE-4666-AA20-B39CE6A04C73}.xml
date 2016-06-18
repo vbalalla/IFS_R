@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<configuration date="2015/11/15" author="e.World Technology Ltd.">
+<project id="{12843785-DCAE-4666-AA20-B39CE6A04C73}" file="" name="project2" product="PHPReportMaker" version="8.1" datetime="2015/11/15 18:27:35" languagefolder="phprptlang" userlevel="0,&quot;Default&quot;,0">
+<table id="candidate" name="candidate" caption="candidate" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="candidatestatus" name="candidatestatus" caption="candidatestatus" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="cv" name="cv" caption="cv" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="employee" name="employee" caption="employee" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interview" name="interview" caption="interview" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewdetails" name="interviewdetails" caption="interviewdetails" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewpanel" name="interviewpanel" caption="interviewpanel" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewpaneldetails" name="interviewpaneldetails" caption="interviewpaneldetails" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewpanelmember" name="interviewpanelmember" caption="interviewpanelmember" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewpanelmemberdetails" name="interviewpanelmemberdetails" caption="interviewpanelmemberdetails" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="interviewschedule" name="interviewschedule" caption="interviewschedule" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="jobpositon" name="jobpositon" caption="jobpositon" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="recruitmentsession" name="recruitmentsession" caption="recruitmentsession" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="sessionstatus" name="sessionstatus" caption="sessionstatus" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="jobpositionvsjoboffered" name="jobpositionvsjoboffered" caption="jobpositionvsjoboffered" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="JobPosition_Vs_Job_Offered_Candidates" name="JobPosition Vs Job Offered Candidates" caption="Job Position Vs Number of Job Offered Candidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="universityvsjobofferedcandidates" name="universityvsjobofferedcandidates" caption="universityvsjobofferedcandidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="University_VS_Job_Offered_Candidates" name="University VS Job Offered Candidates" caption="University VS Job Offered Candidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="jobpositionvsinterviews" name="jobpositionvsinterviews" caption="jobpositionvsinterviews" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="Job_Position_Vs_Number_of_Interviews" name="Job Position Vs Number of Interviews" caption="Job Position Vs Number of Interviews" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="jobpositionvsrejected" name="jobpositionvsrejected" caption="jobpositionvsrejected" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="Job_Position_Vs_Rejected_Candidates" name="Job Position Vs Rejected Candidates" caption="Job Position Vs Rejected Candidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="universityvsrejectedcandidates" name="universityvsrejectedcandidates" caption="universityvsrejectedcandidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="University_Vs_Rejected_Candidates" name="University Vs Rejected Candidates" caption="University Vs Rejected Candidates" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+</project></configuration>
